@@ -25,7 +25,7 @@
 
         <div class="box-body">
             <div class="table-responsive">
-                <table id="users-table" class="table table-condensed table-hover">
+                <!--<table id="users-table" class="table table-condensed table-hover">
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.access.users.table.id') }}</th>
@@ -38,7 +38,9 @@
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
                     </thead>
-                </table>
+                </table>-->
+
+                <data-viewer source="{{ route("admin.access.user.get") }}" title="User Data" />
             </div><!--table-responsive-->
         </div><!-- /.box-body -->
     </div><!--box-->

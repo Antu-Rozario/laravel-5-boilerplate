@@ -113,10 +113,11 @@ elixir((mix) => {
         "public/css/backend-rtl.css",
         "public/js/backend.js",
         "public/css/rtl.css"
-    ])
+    ]);
 
     /**
      * Run tests
+     * Warning: Time Consuming
      */
-    .phpUnit();
+    //.phpUnit();
 });

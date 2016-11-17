@@ -19,7 +19,7 @@ Route::group([
 			/**
 			 * For DataTables
 			 */
-			Route::post('user/get', 'UserTableController')->name('user.get');
+			Route::get('user/get', 'UserTableController')->name('user.get');
 
 			/**
 			 * User Status'

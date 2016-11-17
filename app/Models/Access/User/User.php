@@ -2,6 +2,7 @@
 
 namespace App\Models\Access\User;
 
+use App\Helpers\Backend\DataViewer;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Access\User\Traits\UserAccess;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,6 +19,7 @@ use App\Models\Access\User\Traits\Relationship\UserRelationship;
 class User extends Authenticatable
 {
     use UserScope,
+		DataViewer,
 		UserAccess,
 		Notifiable,
 		SoftDeletes,
@@ -50,6 +52,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+	/**
+	 * @var array
+	 */
+	public static $columns = ['id', 'name', 'email', 'created_at', 'updated_at'];
 
 	/**
 	 * @param array $attributes

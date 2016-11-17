@@ -35,23 +35,25 @@
 @import "carousel";
 @import "modal";
 
-//PAGES
-//------
+// Pages
 @import "mailbox";
 @import "lockscreen";
 @import "login_and_register";
 @import "404_500_errors";
 @import "invoice";
 
+// Plugins
 @import "fullcalendar";
 
-//SKINS
+// Skins
 @import "skins/_all-skins";
 
-//OTHER
+// Components
+@import "components/dataviewer";
+
+// Other
 @import "custom";
 
-//Miscellaneous
-//-------------
+// Misc
 @import "miscellaneous";
 @import "print";

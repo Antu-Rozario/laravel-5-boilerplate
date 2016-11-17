@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Access\User;
 
+use App\Models\Access\User\User;
 use App\Http\Controllers\Controller;
 use Yajra\Datatables\Facades\Datatables;
 use App\Repositories\Backend\Access\User\UserRepository;
@@ -30,7 +31,7 @@ class UserTableController extends Controller
 	 * @return mixed
 	 */
 	public function __invoke(ManageUserRequest $request) {
-		return Datatables::of($this->users->getForDataTable($request->get('status'), $request->get('trashed')))
+		/*return Datatables::of($this->users->getForDataTable($request->get('status'), $request->get('trashed')))
 			->editColumn('confirmed', function($user) {
 				return $user->confirmed_label;
 			})
@@ -43,6 +44,15 @@ class UserTableController extends Controller
 				return $user->action_buttons;
 			})
 			->withTrashed()
-			->make(true);
+			->make(true);*/
+
+		$model = User::searchPaginateAndOrder();
+		$columns = User::$columns;
+
+		return response()
+			->json([
+				'model' => $model,
+				'columns' => $columns
+			]);
 	}
 }
