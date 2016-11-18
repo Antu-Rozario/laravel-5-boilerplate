@@ -1,6 +1,7 @@
-<?php namespace App\Helpers\Backend;
+<?php namespace App\Helpers\Backend\Traits;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 /**
  * Class DataViewer
@@ -31,7 +32,7 @@ trait DataViewer {
 	{
 		$request = app()->make('request');
 
-		$v = Validator::make($request->only([
+		$validator = Validator::make($request->only([
 			'column', 'direction', 'per_page',
 			'search_column', 'search_operator', 'search_input'
 		]), [
@@ -43,8 +44,8 @@ trait DataViewer {
 			'search_input' => 'max:255'
 		]);
 
-		if($v->fails()) {
-			throw new \Illuminate\Validation\ValidationException($v);
+		if($validator->fails()) {
+			throw new ValidationException($validator);
 		}
 
 		return $query
@@ -61,6 +62,7 @@ trait DataViewer {
 					}
 				}
 			})
+			->select(self::$columns)
 			->paginate($request->per_page);
 	}
 }

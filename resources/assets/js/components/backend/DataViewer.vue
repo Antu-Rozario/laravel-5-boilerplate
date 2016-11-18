@@ -22,7 +22,7 @@
                        @keyup.enter="fetchIndexData()">
             </div>
             <div class="dv-header-submit">
-                <button class="dv-header-btn"@click="fetchIndexData()">Filter</button>
+                <button class="dv-header-btn" @click="fetchIndexData()">Filter</button>
             </div>
         </div>
         <div class="dv-body">

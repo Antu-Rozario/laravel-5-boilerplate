@@ -2,8 +2,8 @@
 
 namespace App\Models\Access\User;
 
-use App\Helpers\Backend\DataViewer;
 use Illuminate\Notifications\Notifiable;
+use App\Helpers\Backend\Traits\DataViewer;
 use App\Models\Access\User\Traits\UserAccess;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Access\User\Traits\Scope\UserScope;
